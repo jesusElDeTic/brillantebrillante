@@ -17,7 +17,8 @@ basic.showLeds(`
     `)
 basic.forever(function () {
     if (input.buttonIsPressed(Button.A) || input.buttonIsPressed(Button.B)) {
-        if (led.brightness() >= 250 || led.brightness() <= 10) {
+        serial.writeLine("" + (led.brightness()))
+        if (led.brightness() == 255) {
             led.plot(0, 0)
             led.plot(4, 0)
             led.plot(0, 4)
